@@ -14,7 +14,7 @@ import SwiftyJSON
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-    let weatherManager = WeatherManager.sharedInstance
+    private let apiKey = "e492180da724ac1e28d7cd6846bb98c0"
     var lon = CLLocationDegrees()
     var lat = CLLocationDegrees()
     
@@ -32,9 +32,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         lat = 39.680833
         lon = -86.1446394
         
-        let weatherDictionary = weatherManager.getWeatherForLocationWithCoordinates(lat, longitude: lon)
-        //let currentWeather = CurrentWeather(weatherDictionary: weatherDictionary)
-        print(weatherDictionary)
+        getWeatherForLocationWithCoordinates(lat, longitude: lon)
+       
+    }
+    
+    func getWeatherForLocationWithCoordinates(latitude: Double, longitude: Double) {
+        
+        let url = "https://api.forecast.io/forecast/\(apiKey)/\(latitude),\(longitude)"
+        var weatherDictionary = NSDictionary()
+        Alamofire.request(.GET, url).responseJSON(completionHandler: { Response in
+            if let data = Response.data {
+                do {
+                    weatherDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
+                    let currentWeather = CurrentWeather(weatherDictionary: weatherDictionary)
+                    print(currentWeather)
+                } catch {
+                    print("Error bitch")
+                }
+            }
+        })
     }
     
 }
