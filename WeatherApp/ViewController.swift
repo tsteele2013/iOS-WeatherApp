@@ -45,7 +45,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 do {
                     weatherDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
                     let currentWeather = CurrentWeather(weatherDictionary: weatherDictionary)
-                    print(currentWeather)
+                    let weeklyWeather = WeeklyWeather(weatherDictionary: weatherDictionary)
+                    print("CURRENT WEATHER: ", currentWeather)
+                    print("WEEKLY WEATHER: ", weeklyWeather)
                 } catch {
                     print("Error bitch")
                 }
