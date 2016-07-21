@@ -32,8 +32,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         lat = 39.680833
         lon = -86.1446394
         
-        weatherManager.getWeatherForLocationWithCoordinates(lat, longitude: lon)
-        
+        let weatherDictionary = weatherManager.getWeatherForLocationWithCoordinates(lat, longitude: lon)
+        //let currentWeather = CurrentWeather(weatherDictionary: weatherDictionary)
+        print(weatherDictionary)
     }
     
 }

@@ -27,18 +27,22 @@ class WeatherManager {
      
      - Parameter latitude: Latitude for a given location.
      - Parameter longitude: Longitude for a given location.
+     
+     - Returns: NSDictionary with weather data.
     */
-    func getWeatherForLocationWithCoordinates(latitude: Double, longitude: Double) {
+    func getWeatherForLocationWithCoordinates(latitude: Double, longitude: Double) -> [String : AnyObject] {
         let url = "https://api.forecast.io/forecast/\(apiKey)/\(latitude),\(longitude)"
+        var weatherDictionary = [String : AnyObject]()
         Alamofire.request(.GET, url).responseJSON(completionHandler: { Response in
             if let data = Response.data {
                 do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! [ String : AnyObject]
-                    print(json)
+                    weatherDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String : AnyObject]
+                    print(weatherDictionary)
                 } catch {
                     print("Error bitch")
                 }
             }
         })
+        return weatherDictionary
     }
 }
