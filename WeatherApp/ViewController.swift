@@ -42,7 +42,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         print(json)
                     } catch {
                         print("Error bitch")
-                        print("Bsm")
                     }
                 }
             })
