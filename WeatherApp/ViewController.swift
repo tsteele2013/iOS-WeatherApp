@@ -14,6 +14,7 @@ import SwiftyJSON
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    let weatherManager = WeatherManager.sharedInstance
     var lon = CLLocationDegrees()
     var lat = CLLocationDegrees()
     
@@ -28,23 +29,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func getMyLatAndLon(sender: AnyObject) {
-        print(locationManager.location?.coordinate)
         lat = 39.680833
         lon = -86.1446394
-        let key = "e492180da724ac1e28d7cd6846bb98c0"
-        let url = "https://api.forecast.io/forecast/\(key)/\(lat),\(lon)"
         
-        Alamofire.request(.GET, url)
-            .responseJSON(completionHandler: { Response in
-                if let data = Response.data {
-                    do {
-                        let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! [ String : AnyObject]
-                        print(json)
-                    } catch {
-                        print("Error bitch")
-                    }
-                }
-            })
+        weatherManager.getWeatherForLocationWithCoordinates(lat, longitude: lon)
+        
     }
     
 }
