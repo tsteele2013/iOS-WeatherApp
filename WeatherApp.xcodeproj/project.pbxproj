@@ -16,6 +16,7 @@
 		7893A5961D4075630067B792 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7893A5951D4075630067B792 /* Constants.swift */; };
 		7893A5991D407D240067B792 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7893A5981D407D240067B792 /* CurrentWeather.swift */; };
 		7893A59B1D4113A90067B792 /* WeeklyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7893A59A1D4113A90067B792 /* WeeklyWeather.swift */; };
+		7893A59D1D4117F60067B792 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7893A59C1D4117F60067B792 /* HelperFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		7893A5951D4075630067B792 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7893A5981D407D240067B792 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		7893A59A1D4113A90067B792 /* WeeklyWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyWeather.swift; sourceTree = "<group>"; };
+		7893A59C1D4117F60067B792 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		AFB2C67FF57546733A0532A8 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				7893A5951D4075630067B792 /* Constants.swift */,
+				7893A59C1D4117F60067B792 /* HelperFunctions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				785138A01D403D4E00979189 /* AppDelegate.swift in Sources */,
 				7893A5961D4075630067B792 /* Constants.swift in Sources */,
 				7893A59B1D4113A90067B792 /* WeeklyWeather.swift in Sources */,
+				7893A59D1D4117F60067B792 /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
