@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -25,16 +25,54 @@
                                     <action selector="getMyLatAndLon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lkn-AH-jaH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70 Degrees F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIM-98-DfM">
+                                <rect key="frame" x="179" y="55" width="242" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="242" id="HGx-Ub-Two"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R2W-Mi-IqV">
+                                <rect key="frame" x="250" y="154" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2rH-gd-IQ2"/>
+                                    <constraint firstAttribute="width" constant="100" id="byf-51-pgu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80-85" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0f-dn-fwb">
+                                <rect key="frame" x="20" y="289" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="3y3-1H-xwE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SVd-97-D7a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0nX-c4-I4J"/>
                             <constraint firstItem="SVd-97-D7a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="2EG-F7-g3R"/>
+                            <constraint firstItem="JIM-98-DfM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Uy-EE-G6J"/>
+                            <constraint firstItem="R2W-Mi-IqV" firstAttribute="top" secondItem="JIM-98-DfM" secondAttribute="bottom" constant="8" id="5sj-Sd-bEa"/>
+                            <constraint firstItem="R2W-Mi-IqV" firstAttribute="centerX" secondItem="JIM-98-DfM" secondAttribute="centerX" id="66o-VT-NQg"/>
+                            <constraint firstItem="JIM-98-DfM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="JIh-Ez-CEw"/>
+                            <constraint firstItem="O0f-dn-fwb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aDs-BD-b76"/>
+                            <constraint firstItem="O0f-dn-fwb" firstAttribute="leading" secondItem="SVd-97-D7a" secondAttribute="leading" id="dnK-4B-kdQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JIM-98-DfM" secondAttribute="bottom" constant="454" id="sO8-DH-7hM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentWeatherImageView" destination="R2W-Mi-IqV" id="dAC-SM-uhl"/>
+                        <outlet property="currentWeatherTemp" destination="JIM-98-DfM" id="9ah-dM-M9P"/>
+                        <outlet property="weeklyWeatherDay1Temp" destination="O0f-dn-fwb" id="D5R-UN-eok"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="325" y="399"/>
         </scene>
     </scenes>
 </document>

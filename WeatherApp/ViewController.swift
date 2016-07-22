@@ -18,6 +18,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var lon = CLLocationDegrees()
     var lat = CLLocationDegrees()
     
+    @IBOutlet weak var currentWeatherTemp: UILabel!
+    @IBOutlet weak var currentWeatherImageView: UIImageView!
+    
+    @IBOutlet weak var weeklyWeatherDay1Temp: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,16 +43,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func getWeatherForLocationWithCoordinates(latitude: Double, longitude: Double) {
+        UIView.animateWithDuration(1.0, animations: {
+            self.currentWeatherTemp.alpha = 0.0
+            if self.currentWeatherTemp.textColor == UIColor.redColor() {
+                self.currentWeatherTemp.textColor = UIColor.blueColor()
+            } else {
+                self.currentWeatherTemp.textColor = UIColor.redColor()
+            }
+        })
         
         let url = "https://api.forecast.io/forecast/\(apiKey)/\(latitude),\(longitude)"
-        var weatherDictionary = NSDictionary()
+        var weatDictionary = NSDictionary()
         Alamofire.request(.GET, url).responseJSON(completionHandler: { Response in
             if let data = Response.data {
                 do {
-                    weatherDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
-                    let currentWeather = CurrentWeather(weatherDictionary: weatherDictionary)
-                    let weeklyWeather = WeeklyWeather(weatherDictionary: weatherDictionary)
-                    print(weatherDictionary)
+                    weatDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
+                    let currentWeather = CurrentWeather(weatherDictionary: weatDictionary)
+                    let weeklyWeather = WeeklyWeather(weatherDictionary: weatDictionary)
+                    print(weatDictionary)
+                    self.currentWeatherTemp.text = String(currentWeather.temperature)
+                    self.currentWeatherTemp.alpha = 1.0
+                    self.currentWeatherImageView.image = UIImage(named: "SunFilled")
+                    
+                    self.weeklyWeatherDay1Temp.text = "\(String(weeklyWeather.dayOneTemperatureMin)) - \(String(weeklyWeather.dayOneTemperatureMax))"
+                    
                 } catch {
                     print("Error bitch")
                 }

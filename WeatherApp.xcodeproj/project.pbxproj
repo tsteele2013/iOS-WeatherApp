@@ -123,12 +123,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 785138AE1D403D4E00979189 /* Build configuration list for PBXNativeTarget "WeatherApp" */;
 			buildPhases = (
+				E499EB2057094B8C182C9092 /* 📦 Check Pods Manifest.lock */,
 				F3BDDE60B54AB13A5BAC382C /* [CP] Check Pods Manifest.lock */,
 				785138981D403D4E00979189 /* Sources */,
 				785138991D403D4E00979189 /* Frameworks */,
 				7851389A1D403D4E00979189 /* Resources */,
 				5B5C7D3214FC527B5FDE3D4E /* [CP] Embed Pods Frameworks */,
 				5E5C180E0E73E94B127E2D12 /* [CP] Copy Pods Resources */,
+				DBEA40B730B2567A6BD656CA /* 📦 Embed Pods Frameworks */,
+				787E741A920B7E9F35744DA8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +217,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		787E741A920B7E9F35744DA8 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBEA40B730B2567A6BD656CA /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E499EB2057094B8C182C9092 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F3BDDE60B54AB13A5BAC382C /* [CP] Check Pods Manifest.lock */ = {
