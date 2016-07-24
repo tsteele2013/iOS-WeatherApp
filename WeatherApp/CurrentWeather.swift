@@ -36,19 +36,7 @@ struct CurrentWeather {
 }
 
 
-/// Takes date in Unix time and returns a nicely formatted string.
-func dateStringFromUnixtime(unixTime: Int) -> String {
-    
-    let timeInSeconds = NSTimeInterval(unixTime)
-    let weatherDate = NSDate(timeIntervalSince1970: timeInSeconds)
-    
-    let dateFormatter = NSDateFormatter()
-    dateFormatter.timeStyle = .MediumStyle
-    
-    return dateFormatter.stringFromDate(weatherDate)
-    
-    
-}
+
 
 
 

@@ -42,3 +42,61 @@ func weatherIconFromString(stringIcon: String) -> UIImage {
     let iconImage = UIImage(named: imageName)
     return iconImage!
 }
+
+/**
+ Returns truncated day name (i.e. "Sun") from Unix time Int.
+ 
+ - Parameter unixTime: Unix time Int.
+ 
+ - Returns: String of truncted weekday name.
+ */
+func weekDateShortStringFromUnixtime(unixTime: Int) -> String {
+    
+    let timeInSeconds = NSTimeInterval(unixTime)
+    let weatherDate = NSDate(timeIntervalSince1970: timeInSeconds)
+    
+    let dateFormatter = NSDateFormatter()
+    //dateFormatter.timeStyle = .MediumStyle
+    dateFormatter.dateFormat = "EEE"
+    
+    return dateFormatter.stringFromDate(weatherDate)
+}
+
+/**
+ Returns truncated day name (i.e. "Sun") from Unix time Int.
+ 
+ - Parameter unixTime: Unix time Int.
+ 
+ - Returns: String of truncted weekday name.
+ */
+func weekDateLongStringFromUnixtime(unixTime: Int) -> String {
+    
+    let timeInSeconds = NSTimeInterval(unixTime)
+    let weatherDate = NSDate(timeIntervalSince1970: timeInSeconds)
+    
+    let dateFormatter = NSDateFormatter()
+    //dateFormatter.timeStyle = .MediumStyle
+    dateFormatter.dateFormat = "EEEE"
+    
+    return dateFormatter.stringFromDate(weatherDate)
+}
+
+/**
+ Returns time of day (i.e. "3:10:00 PM") from Unix time Int.
+ 
+ - Parameter unixTime: Unix time Int.
+ 
+ - Returns: Time of day as String.
+ */
+func dateStringFromUnixtime(unixTime: Int) -> String {
+    
+    let timeInSeconds = NSTimeInterval(unixTime)
+    let weatherDate = NSDate(timeIntervalSince1970: timeInSeconds)
+    
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.timeStyle = .MediumStyle
+    
+    return dateFormatter.stringFromDate(weatherDate)
+}
+
+

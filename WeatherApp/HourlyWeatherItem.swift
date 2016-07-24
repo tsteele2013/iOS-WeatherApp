@@ -23,8 +23,9 @@ struct HourlyWeatherItem {
         humidity = hourlyWeather[index]["humidity"] as! Double
         precipProbability = hourlyWeather[index]["precipProbability"] as! Double
         windSpeed = hourlyWeather[index]["windSpeed"] as! Double
-        let hourlyTimeIntValue = hourlyWeather[index]["time"] as! Int
-        hourlyTime = dateStringFromUnixtime(hourlyTimeIntValue)
+        if let hourlyTimeIntValue = hourlyWeather[index]["time"] as? Int {
+            hourlyTime = dateStringFromUnixtime(hourlyTimeIntValue)
+        }
         //        let iconString = hourlyWeather[index]["icon"]as! String
         //        icon = weatherIconFromString(iconString)
     }
