@@ -91,8 +91,56 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
                 }
             }
         })
+        
+        let url2 = "https://autocomplete.wunderground.com/aq?query=New%20Pa&c=US"
+        var autocomplete = NSDictionary()
+        Alamofire.request(.GET, url2).responseJSON(completionHandler: { Response in
+            if let data = Response.data{
+                
+                do{
+                    autocomplete = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
+                 
+                    
+                    let arr = autocomplete["RESULTS"] as! NSArray
+            
+                    
+                    
+                    for item in 0...(arr.count - 1){
+                        
+
+                        let acItem = AutocompleteItem(items: arr, index: item)
+                        
+                        
+                        print(acItem)
+                        
+                        
+                        
+                        
+                    }
+                    
+                }
+                
+                catch{
+                    
+                    
+                    print("cunt")
+                    
+                }
+            }
+        
+        
+        
+        
+        })
+        
     }
 }
+
+        
+        
+    
+
+
 
 //MARK: UITableViewDelegate, UITableViewDataSource
 extension ViewController {

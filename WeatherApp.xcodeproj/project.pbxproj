@@ -19,6 +19,7 @@
 		7893A5991D407D240067B792 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7893A5981D407D240067B792 /* CurrentWeather.swift */; };
 		7893A59B1D4113A90067B792 /* WeeklyWeatherItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7893A59A1D4113A90067B792 /* WeeklyWeatherItem.swift */; };
 		7893A59D1D4117F60067B792 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7893A59C1D4117F60067B792 /* HelperFunctions.swift */; };
+		D037F3AC1D52E067008D69F7 /* AutocompleteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037F3AB1D52E067008D69F7 /* AutocompleteItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7893A59A1D4113A90067B792 /* WeeklyWeatherItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherItem.swift; sourceTree = "<group>"; };
 		7893A59C1D4117F60067B792 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		AFB2C67FF57546733A0532A8 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		D037F3AB1D52E067008D69F7 /* AutocompleteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				7893A5981D407D240067B792 /* CurrentWeather.swift */,
 				7893A59A1D4113A90067B792 /* WeeklyWeatherItem.swift */,
 				694E20621D4541C70020C2BF /* HourlyWeatherItem.swift */,
+				D037F3AB1D52E067008D69F7 /* AutocompleteItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			files = (
 				7893A5991D407D240067B792 /* CurrentWeather.swift in Sources */,
 				785138A21D403D4E00979189 /* ViewController.swift in Sources */,
+				D037F3AC1D52E067008D69F7 /* AutocompleteItem.swift in Sources */,
 				785138A01D403D4E00979189 /* AppDelegate.swift in Sources */,
 				694E20661D4556710020C2BF /* WeeklyWeatherCell.swift in Sources */,
 				7893A5961D4075630067B792 /* Constants.swift in Sources */,
