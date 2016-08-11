@@ -22,6 +22,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     @IBOutlet weak var currentWeatherTemp: UILabel!
     @IBOutlet weak var currentWeatherImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     override func viewDidLoad() {
@@ -68,6 +69,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
                             let item = HourlyWeatherItem(hourlyWeather: hourlyWeather, index: i)
                             self.hourlyWeatherArray.append(item)
                         }
+                        var counter = 0
+                        for item in self.hourlyWeatherArray {
+                            let hrlyView = createHourlySubview(item)
+                            hrlyView.layer.borderWidth = 2
+                            hrlyView.layer.borderColor = UIColor.blueColor().CGColor
+                            hrlyView.center.x = CGFloat(65 * counter + 50)
+                            self.scrollView.addSubview(hrlyView)
+                            self.scrollView.contentSize.width = CGFloat(65 * counter + 100)
+                            
+                            counter += 1
+                        }
                     }
                     
                     
@@ -83,7 +95,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
                     
                     self.currentWeatherTemp.text = String(currentWeather.temperature)
                     self.currentWeatherTemp.alpha = 1.0
-                    //self.currentWeatherImageView.image = UIImage(named: "")
+                    self.currentWeatherImageView.image = UIImage(named: "SunFilled")
                     
                     self.tableView.reloadData()
                 } catch {
@@ -96,47 +108,44 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         var autocomplete = NSDictionary()
         Alamofire.request(.GET, url2).responseJSON(completionHandler: { Response in
             if let data = Response.data{
-                
                 do{
                     autocomplete = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
                  
-                    
                     let arr = autocomplete["RESULTS"] as! NSArray
-            
-                    
-                    
                     for item in 0...(arr.count - 1){
-                        
-
                         let acItem = AutocompleteItem(items: arr, index: item)
-                        
-                        
                         print(acItem)
-                        
-                        
-                        
-                        
                     }
-                    
                 }
-                
                 catch{
-                    
-                    
                     print("cunt")
-                    
                 }
             }
-        
-        
-        
-        
         })
         
     }
 }
 
-        
+
+func createHourlySubview(item: HourlyWeatherItem) -> UIView {
+    let view = UIView()
+    view.frame = CGRect(x: 0, y: 0, width: 55, height: 75)
+    let tempLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 55, height: 20))
+    tempLabel.textAlignment = .Center
+    tempLabel.text = String(item.temperature)
+    
+    let timeLabel = UILabel(frame: CGRect(x: 0, y: 55, width: 55, height: 20))
+    timeLabel.textAlignment = .Center
+    timeLabel.text = String(item.hourlyTime!)
+    timeLabel.adjustsFontSizeToFitWidth = true
+    
+    let wthrIcon = UIImageView(frame: CGRect(x: 10, y: 20, width: 35, height: 35))
+    wthrIcon.image = UIImage(named: "SunFilled")
+    view.addSubview(tempLabel)
+    view.addSubview(timeLabel)
+    view.addSubview(wthrIcon)
+    return view
+}
         
     
 
